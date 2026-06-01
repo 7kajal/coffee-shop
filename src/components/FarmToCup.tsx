@@ -1,35 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const coffees = [
   {
     image: "/images/coffee2.webp",
 
-    className: "row-span-2",
+    className: "sm:row-span-2",
   },
   {
     image:
       "/images/8624835-how-to-make-a-cappuccino-beauty-4x3-0301-13d55eaad60b42058f24369c292d4ccb.jpg",
-    className: "row-span-1",
+    className: "sm:row-span-1",
   },
   {
     image: "/images/Hot-Coffee.png",
-    className: "row-span-1",
+    className: "sm:row-span-1",
   },
   {
     image: "/images/coffee-smoothie.jpg",
 
-    className: "row-span-2",
+    className: "sm:row-span-2",
   },
   {
     image:
       "/images/Partners-Cappuccino-FT-BLOG0523-d2eed8fcd48d464282176339908662f7.jpg",
-    className: "row-span-1",
+    className: "sm:row-span-1",
   },
   {
     image: "/images/best-coffee-shop-in-gurgaon.jpg",
-    className: "row-span-1",
+    className: "sm:row-span-1",
   },
 ];
 
@@ -37,9 +38,9 @@ export default function CoffeeGallery() {
   return (
     <section
       id="gallery"
-      className="bg-coffee-950 py-32 relative overflow-hidden"
+      className="relative scroll-mt-24 overflow-hidden bg-coffee-950 py-16 sm:scroll-mt-28 sm:py-20 lg:py-32"
     >
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.div
@@ -66,7 +67,7 @@ export default function CoffeeGallery() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 auto-rows-[240px]">
+        <div className="grid grid-cols-1 gap-4 auto-rows-[220px] sm:grid-cols-2 sm:gap-6 sm:auto-rows-[240px] md:grid-cols-4">
           {coffees.map((item, index) => (
             <motion.div
               key={index}
@@ -76,10 +77,12 @@ export default function CoffeeGallery() {
               viewport={{ once: true }}
               className={`relative overflow-hidden rounded-3xl group ${item.className} border border-white/5 shadow-2xl transition-all duration-500 hover:border-accent-amber/30`}
             >
-              <img
+              <Image
                 src={item.image}
                 alt={`Coffee ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
 
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-500" />

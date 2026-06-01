@@ -75,7 +75,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-24 bg-gradient-to-b from-[#160e0b] via-[#120a07] to-[#0d0806] relative overflow-hidden">
+    <section id="testimonials" className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#160e0b] via-[#120a07] to-[#0d0806] py-16 sm:scroll-mt-28 sm:py-20 lg:py-24">
       {/* Background lights and shapes */}
       <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-coffee-800/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-10%] w-[350px] h-[350px] bg-accent-gold/5 rounded-full blur-[100px] pointer-events-none" />
@@ -83,7 +83,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -104,10 +104,10 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Slider */}
-        <div className="max-w-4xl mx-auto relative px-4 sm:px-12 flex flex-col items-center">
+        <div className="relative mx-auto flex max-w-4xl flex-col items-center px-0 sm:px-12">
           
           {/* Main Card */}
-          <div className="w-full relative min-h-[300px] sm:min-h-[260px] flex items-center justify-center">
+          <div className="relative flex min-h-[360px] w-full items-center justify-center sm:min-h-[280px]">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={activeIndex}
@@ -116,18 +116,18 @@ export default function Testimonials() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="w-full rounded-3xl bg-gradient-to-b from-[#1c120f] to-[#120a07] border border-coffee-800/40 p-8 sm:p-12 relative flex flex-col justify-between shadow-2xl"
+                className="relative flex w-full flex-col justify-between rounded-3xl border border-coffee-800/40 bg-gradient-to-b from-[#1c120f] to-[#120a07] p-6 shadow-2xl sm:p-12"
               >
                 {/* Quote Icon */}
-                <Quote className="absolute top-6 right-8 w-16 h-16 text-coffee-800/10 pointer-events-none" />
+                <Quote className="pointer-events-none absolute right-6 top-6 h-12 w-12 text-coffee-800/10 sm:right-8 sm:h-16 sm:w-16" />
 
                 {/* Testimonial Text */}
                 <p className="font-light text-cream-200 text-base sm:text-lg md:text-xl leading-relaxed italic mb-8 relative z-10 text-center sm:text-left">
-                  "{testimonials[activeIndex].text}"
+                  &ldquo;{testimonials[activeIndex].text}&rdquo;
                 </p>
 
                 {/* Profile Details */}
-                <div className="flex flex-col sm:flex-row items-center justify-between border-t border-coffee-850 pt-6 gap-4">
+                <div className="flex flex-col gap-4 border-t border-coffee-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex items-center gap-4 text-center sm:text-left">
                     <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-accent-gold/40">
                       <Image
@@ -160,10 +160,10 @@ export default function Testimonials() {
           </div>
 
           {/* Navigation Controls */}
-          <div className="flex items-center gap-4 mt-8">
+          <div className="mt-8 flex w-full max-w-xs items-center justify-between gap-3 sm:w-auto sm:max-w-none sm:gap-4">
             <button
               onClick={handlePrev}
-              className="w-12 h-12 rounded-full bg-coffee-900 border border-coffee-800 hover:border-accent-amber/50 hover:bg-coffee-850 text-cream-200 flex items-center justify-center transition-all active:scale-95 shadow-md shadow-coffee-950/20"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-coffee-800 bg-coffee-900 text-cream-200 transition-all active:scale-95 hover:border-accent-amber/50 hover:bg-coffee-800 sm:h-12 sm:w-12"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -178,7 +178,7 @@ export default function Testimonials() {
                     setActiveIndex(i);
                   }}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    activeIndex === i ? 'w-6 bg-accent-gold' : 'w-2.5 bg-coffee-800 hover:bg-coffee-750'
+                    activeIndex === i ? 'w-6 bg-accent-gold' : 'w-2.5 bg-coffee-800 hover:bg-coffee-700'
                   }`}
                 />
               ))}
@@ -186,7 +186,7 @@ export default function Testimonials() {
 
             <button
               onClick={handleNext}
-              className="w-12 h-12 rounded-full bg-coffee-900 border border-coffee-800 hover:border-accent-amber/50 hover:bg-coffee-850 text-cream-200 flex items-center justify-center transition-all active:scale-95 shadow-md shadow-coffee-950/20"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-coffee-800 bg-coffee-900 text-cream-200 transition-all active:scale-95 hover:border-accent-amber/50 hover:bg-coffee-800 sm:h-12 sm:w-12"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

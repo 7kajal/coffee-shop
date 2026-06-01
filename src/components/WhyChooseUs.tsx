@@ -37,7 +37,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-24 bg-[#0d0806] relative overflow-hidden">
+    <section id="why-us" className="relative scroll-mt-24 overflow-hidden bg-[#0d0806] py-16 sm:scroll-mt-28 sm:py-20 lg:py-24">
       {/* Decorative Blur */}
       <div className="absolute top-1/2 left-[10%] w-96 h-96 bg-coffee-800/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute top-1/2 right-[10%] w-96 h-96 bg-accent-gold/5 rounded-full blur-[100px] pointer-events-none" />
@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {features.map((feature, index) => (
             <motion.div
               key={feature.id}
@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
                   src={feature.image}
                   alt={feature.title}
                   fill
-                  sizes="(max-w-768px) 100vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 25vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90"
                 />
                 

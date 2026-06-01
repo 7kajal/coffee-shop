@@ -84,7 +84,10 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative overflow-hidden bg-[#0b0705]">
+    <footer
+      id="contact"
+      className="relative scroll-mt-24 overflow-hidden bg-[#0b0705] sm:scroll-mt-28"
+    >
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +98,7 @@ export default function Footer() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.06),transparent_34%)] pointer-events-none" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#9a643a]/50 to-transparent" />
 
-        <div className="relative mx-auto grid min-h-[250px] max-w-7xl items-center px-6 py-10 sm:px-8 md:grid-cols-[240px_1fr_260px] lg:min-h-[290px] lg:px-10">
+        <div className="relative mx-auto grid min-h-[250px] max-w-7xl items-center gap-8 px-5 py-10 sm:px-8 md:grid-cols-[220px_1fr_220px] lg:min-h-[290px] lg:px-10">
           <div className="pointer-events-none relative hidden h-full md:block">
             <div className="absolute bottom-[-18px] left-0 h-[170px] w-[130px] lg:h-[220px] lg:w-[160px]">
               <Image
@@ -110,7 +113,7 @@ export default function Footer() {
           </div>
 
           <div className="relative z-10 text-center">
-            <h3 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl">
+            <h3 className="font-serif text-2xl font-bold leading-tight text-white sm:text-4xl">
               Ready to Experience the
               <br />
               Best Coffee?
@@ -149,12 +152,12 @@ export default function Footer() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0d0806]/92 to-[#080503]/96" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-10">
-          <div className="grid gap-10 md:grid-cols-[1.45fr_0.8fr_0.8fr_1fr]">
-            <div className="space-y-5">
-              <Logo />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
+          <div className="grid gap-10 text-center sm:grid-cols-2 sm:text-left xl:grid-cols-[1.45fr_0.8fr_0.8fr_1fr]">
+            <div className="space-y-5 sm:col-span-2 xl:col-span-1">
+              <Logo className="justify-center sm:justify-start" />
 
-              <p className="max-w-sm text-sm leading-7 text-cream-300">
+              <p className="mx-auto max-w-sm text-sm leading-7 text-cream-300 sm:mx-0">
                 Café Aura offers premium, expertly crafted coffee that delivers
                 rich flavors and an unforgettable experience in every cup.
               </p>
@@ -163,7 +166,7 @@ export default function Footer() {
                 <p className="text-sm font-medium text-cream-200">
                   Join Our Coffee Community
                 </p>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:justify-start">
                   {socialIcons.map((icon) => (
                     <a
                       key={icon.name}
@@ -217,17 +220,17 @@ export default function Footer() {
                 Get in Touch
               </h4>
               <div className="space-y-3 text-sm text-cream-300">
-                <div className="flex items-start gap-3">
+                <div className="flex items-start justify-center gap-3 sm:justify-start">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-gold" />
                   <span>
                     1234 Coffee Lane, Suite 100 Seattle, United States
                   </span>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center gap-3 sm:justify-start">
                   <Mail className="h-4 w-4 shrink-0 text-accent-gold" />
                   <span>cafeaura@gmail.com</span>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center gap-3 sm:justify-start">
                   <Phone className="h-4 w-4 shrink-0 text-accent-gold" />
                   <span>+91 xxxxxxxxx</span>
                 </div>

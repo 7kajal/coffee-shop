@@ -38,7 +38,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-coffee-950 text-cream-100 font-sans selection:bg-accent-amber selection:text-coffee-950">
         <SmoothScroll>
-          <div className="relative min-h-screen flex flex-col overflow-hidden">
+          <div className="relative flex min-h-screen flex-col overflow-x-hidden">
             {children}
           </div>
         </SmoothScroll>

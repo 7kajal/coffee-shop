@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ShoppingBag, Menu, X } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { Logo } from "./logo";
 
 const navLinks = [
@@ -18,7 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [cartItems, setCartItems] = useState(0);
+  const cartItems = 0;
 
   // Monitor scroll for navbar transitions
   useEffect(() => {
@@ -33,6 +32,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <>
       <motion.nav
@@ -41,8 +48,8 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-coffee-950/90 backdrop-blur-md border-b border-coffee-800/40 py-4 shadow-xl"
-            : "bg-transparent py-6 border-b border-transparent"
+            ? "border-b border-coffee-800/40 bg-coffee-950/90 py-3 shadow-xl backdrop-blur-md sm:py-4"
+            : "border-b border-transparent bg-transparent py-4 sm:py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,9 +105,9 @@ export default function Navbar() {
             <div className="flex md:hidden items-center gap-3">
               <button
                 aria-label="Cart"
-                className="relative text-cream-300 hover:text-accent-gold transition-colors duration-300 p-1.5 hover:bg-coffee-900/50 rounded-full"
+                className="relative rounded-full p-2 text-cream-300 transition-colors duration-300 hover:bg-coffee-900/50 hover:text-accent-gold"
               >
-                <ShoppingBag className="w-4.5 h-4.5" />
+                <ShoppingBag className="h-4 w-4" />
                 <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-accent-amber text-coffee-950 text-[8px] font-bold rounded-full flex items-center justify-center">
                   {cartItems}
                 </span>
@@ -109,12 +116,13 @@ export default function Navbar() {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle Menu"
-                className="text-cream-200 hover:text-accent-gold p-1 hover:bg-coffee-900/50 rounded"
+                aria-expanded={isOpen}
+                className="rounded-md p-2 text-cream-200 hover:bg-coffee-900/50 hover:text-accent-gold"
               >
                 {isOpen ? (
-                  <X className="w-5.5 h-5.5" />
+                  <X className="h-5 w-5" />
                 ) : (
-                  <Menu className="w-5.5 h-5.5" />
+                  <Menu className="h-5 w-5" />
                 )}
               </button>
             </div>
@@ -131,22 +139,22 @@ export default function Navbar() {
               transition={{ duration: 0.3 }}
               className="md:hidden bg-coffee-900/95 backdrop-blur-lg border-b border-coffee-800/40"
             >
-              <div className="px-4 pt-2 pb-6 space-y-3">
+              <div className="space-y-3 px-4 pt-2 pb-6">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="block px-3 py-2.5 rounded-md text-sm tracking-widest uppercase text-cream-200 hover:text-accent-gold hover:bg-coffee-800/40 transition-colors"
+                    className="block rounded-md px-3 py-2.5 text-sm tracking-widest uppercase text-cream-200 transition-colors hover:bg-coffee-800/40 hover:text-accent-gold"
                   >
                     {link.name}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-coffee-800/50 flex flex-col gap-3">
-                  <button className="w-full text-center uppercase tracking-widest text-cream-200 py-2.5 text-xs">
+                <div className="flex flex-col gap-3 border-t border-coffee-800/50 pt-4">
+                  <button className="w-full rounded-full border border-coffee-700/60 px-4 py-2.5 text-center text-xs uppercase tracking-widest text-cream-200">
                     Login
                   </button>
-                  <button className="w-full text-center uppercase tracking-widest bg-transparent text-accent-gold border border-accent-gold/45 rounded-full py-2.5 text-xs font-semibold">
+                  <button className="w-full rounded-full border border-accent-gold/45 bg-transparent py-2.5 text-center text-xs font-semibold uppercase tracking-widest text-accent-gold">
                     Register
                   </button>
                 </div>

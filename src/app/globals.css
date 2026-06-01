@@ -63,6 +63,16 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-padding-top: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 6.5rem;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

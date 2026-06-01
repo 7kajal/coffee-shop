@@ -93,7 +93,7 @@ export default function SignatureCoffees() {
   };
 
   return (
-    <section id="coffee" className="py-24 bg-gradient-to-b from-[#0d0806] via-[#120a07] to-[#160e0b] relative overflow-hidden">
+    <section id="coffee" className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#0d0806] via-[#120a07] to-[#160e0b] py-16 sm:scroll-mt-28 sm:py-20 lg:py-24">
       {/* Background Decorative Graphic */}
       <div className="absolute top-[10%] right-[-10%] w-[350px] h-[350px] bg-accent-gold/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[10%] left-[-10%] w-[350px] h-[350px] bg-coffee-800/10 rounded-full blur-[100px] pointer-events-none" />
@@ -101,7 +101,7 @@ export default function SignatureCoffees() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -126,13 +126,13 @@ export default function SignatureCoffees() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center items-center gap-3 mt-10"
+            className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:mt-10 sm:gap-3"
           >
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveTab(category)}
-                className={`relative px-6 py-2.5 rounded-full text-xs sm:text-sm tracking-widest uppercase font-semibold transition-all duration-300 ${
+                className={`relative rounded-full px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 sm:px-6 sm:text-sm ${
                   activeTab === category
                     ? 'text-coffee-950 font-bold'
                     : 'text-cream-300 hover:text-accent-gold border border-coffee-800/40 bg-coffee-950/20'
@@ -154,7 +154,7 @@ export default function SignatureCoffees() {
         {/* Coffee Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3"
         >
           <AnimatePresence mode="popLayout">
             {filteredCoffees.map((coffee) => (
@@ -175,7 +175,7 @@ export default function SignatureCoffees() {
                     src={coffee.image}
                     alt={coffee.name}
                     fill
-                    sizes="(max-w-768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   
@@ -189,7 +189,7 @@ export default function SignatureCoffees() {
                     onClick={() => toggleLike(coffee.id)}
                     className="absolute top-4 right-4 w-9 h-9 rounded-full bg-coffee-950/80 border border-coffee-800/40 backdrop-blur-md flex items-center justify-center text-cream-200 hover:text-red-500 hover:border-red-500/30 transition-colors"
                   >
-                    <Heart className={`w-4.5 h-4.5 ${likedItems.includes(coffee.id) ? 'fill-red-500 text-red-500' : ''}`} />
+                    <Heart className={`h-4 w-4 ${likedItems.includes(coffee.id) ? 'fill-red-500 text-red-500' : ''}`} />
                   </button>
 
                   {/* Shadow overlay */}
@@ -229,13 +229,13 @@ export default function SignatureCoffees() {
                   </div>
 
                   {/* Pricing and Cart */}
-                  <div className="flex items-center justify-between border-t border-coffee-800/30 pt-4 mt-auto">
+                  <div className="mt-auto flex flex-col gap-4 border-t border-coffee-800/30 pt-4 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex flex-col">
                       <span className="text-[10px] uppercase tracking-widest text-cream-400 font-medium">Price</span>
                       <span className="text-lg font-bold text-accent-gold">{coffee.price}</span>
                     </div>
 
-                    <button className="flex items-center gap-2 bg-coffee-850 border border-coffee-700 text-cream-100 font-bold px-4 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-accent-amber hover:to-accent-gold hover:text-coffee-950 hover:border-accent-gold transition-all duration-300 group/btn">
+                    <button className="flex w-full items-center justify-center gap-2 rounded-xl border border-coffee-700 bg-coffee-900 px-4 py-2.5 font-bold text-cream-100 transition-all duration-300 hover:border-accent-gold hover:bg-gradient-to-r hover:from-accent-amber hover:to-accent-gold hover:text-coffee-950 group/btn sm:w-auto">
                       <ShoppingBag className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
                       <span className="text-xs tracking-widest uppercase">Add to Cart</span>
                     </button>
